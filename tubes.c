@@ -6,7 +6,7 @@ int main () {
     printf("lelah bre asli");
 
     printf("Halo semuanya");
-    printf("bagus");
+    printf("halo kontols");
     
 return 0;
 
