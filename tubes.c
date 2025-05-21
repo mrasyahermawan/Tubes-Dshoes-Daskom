@@ -9,6 +9,7 @@ int main () {
     printf("misalnya");
     printf("ini ica");
     printf("adawdafafa");
+    printf("bismillah");
 return 0;
 
 }
