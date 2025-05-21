@@ -4,7 +4,7 @@ int main () {
     printf("Halo semuanya");
     printf("bagus rahidya");
     printf("woilah coke");
-    printf("anjay mabar ddd");
+    printf("anjay mabar ddsssd");
 return 0;
 
 }
