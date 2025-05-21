@@ -7,6 +7,7 @@ int main () {
     printf("anjay mabar ddsssd");
     printf("misalnya");
     printf("ini ica");
+    printf("adawdafafa");
 return 0;
 
 }
