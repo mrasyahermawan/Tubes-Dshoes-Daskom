@@ -5,6 +5,7 @@ int main () {
     printf("bagus rahidya");
     printf("woilah coke");
     printf("anjay mabar ddsssd");
+    printf("misalnya");
 return 0;
 
 }
