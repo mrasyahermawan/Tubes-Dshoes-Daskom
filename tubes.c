@@ -6,6 +6,11 @@ int main () {
     printf("woilah");
     printf("anjay mabar");
     printf("abcde");
+    printf("bagus rahidya");
+    printf("woilah coke");
+    printf("anjay mabar ddd");
+    printf("bdsjfew");
+
 return 0;
 
 }
