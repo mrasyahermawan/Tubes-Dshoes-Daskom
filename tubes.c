@@ -2,7 +2,7 @@
 
 int main () {
     printf("Halo semuanya");
-    printf("lelah bre asli");
+    printf("bagus rahidya");
     printf("woilah");
 return 0;
 
