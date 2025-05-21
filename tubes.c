@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int main () {
-    printf("Halo semuanya");
+    printf("Halo bangsa");
     printf("lelah bre asli");
     printf("woilah");
     printf("anjay mabar");
