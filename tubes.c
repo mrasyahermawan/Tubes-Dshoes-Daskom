@@ -6,7 +6,7 @@ int main () {
     printf("woilah coke");
     printf("anjay mabar ddsssd");
 <<<<<<< HEAD
-    printf("liasyantikkkk");
+    printf("liasyantikmaniezz");
 =======
     printf("misalnya");
     printf("ini ica");
