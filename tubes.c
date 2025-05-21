@@ -5,6 +5,5 @@ int main () {
     printf("bagus rahidya");
     printf("woilah");
     printf("anjay mabar");
-    printf("sok");
 return 0;
 }
