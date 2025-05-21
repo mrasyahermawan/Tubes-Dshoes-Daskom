@@ -6,7 +6,7 @@ int main () {
     printf("woilah coke");
     printf("anjay mabar ddsssd");
     printf("liasyantikmaniezz");
-    printf("misalnya");
+    printf("misalnya deg");
     printf("ini ica");
     printf("adawdafafa");
     printf("bismillah");
