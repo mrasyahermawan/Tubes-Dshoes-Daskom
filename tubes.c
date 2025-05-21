@@ -6,13 +6,8 @@ int main () {
     printf("lelah bre asli");
 
     printf("Halo semuanya");
-    printf("bagus rahidya");
-    printf("woilah coke");
-    printf("anjay mabar ddsssd");
-    printf("liasyantikmaniezz");
-    printf("misalnya deg");
-    printf("ini ica");
-    printf("adawdafafa");
+    printf("bagus");
+    
 return 0;
 
 }
