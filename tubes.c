@@ -6,7 +6,8 @@ int main () {
     printf("woilah");
     printf("anjay mabar");
     printf ("hai kawan");
-    printf ("gimanasi");
+    printf ("gimanasi ok");
+    printf ("ok ok");
 return 0;
 
 }
