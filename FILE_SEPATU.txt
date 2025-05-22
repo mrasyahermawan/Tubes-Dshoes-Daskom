@@ -1,0 +1,4 @@
+1 Nike_Air_Max Running 1200000 10
+2 Adidas_Ultraboost Running 1500000 8
+3 Nike_Revolution Casual 800000 15
+4 Adidas_Superstar Sneakers 900000 12
