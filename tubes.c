@@ -10,7 +10,11 @@ int main () {
     printf("woilah coke");
     printf("anjay mabar ddd");
     printf("bdsjfew");
-
+    printf("anjay mabar ddsssd");
+    printf("liasyantikkkk");
+    printf("misalnya");
+    printf("ini ica");
+    printf("adawdafafa");
 return 0;
 
 }
