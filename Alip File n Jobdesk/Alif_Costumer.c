@@ -3,7 +3,6 @@
 #include <string.h>
 #include <ctype.h>
 
-// Struktur untuk produk sepatu
 typedef struct {
     int id;
     char nama[50];
@@ -12,13 +11,13 @@ typedef struct {
     int stok;
 } Sepatu;
 
-// Struktur untuk saldo pembeli
+
 typedef struct {
     int id_pembeli;
     float saldo;
 } SaldoPembeli;
 
-// Struktur untuk transaksi
+
 typedef struct {
     int id_transaksi;
     int id_pembeli;
@@ -28,7 +27,7 @@ typedef struct {
     char tanggal[20];
 } Transaksi;
 
-// Deklarasi fungsi
+
 void tampilkanMenuPembeli();
 void lihatKatalogSepatu();
 void topUpSaldo();
@@ -37,14 +36,14 @@ void bersihkanBufferInput();
 int dapatkanIdTransaksiBerikutnya();
 void simpanTransaksi(int id_pembeli, int id_sepatu, const char* nama_sepatu, float jumlah);
 
-// Nama file
+
 #define FILE_SEPATU "sepatu.txt"
 #define FILE_SALDO "saldo.txt"
 #define FILE_TRANSAKSI "transaksi.txt"
 
 int main() {
     int pilihan;
-    int id_pembeli = 1001; // Asumsi pembeli ini sudah login
+    int id_pembeli = 1001; 
     
     do {
         tampilkanMenuPembeli();
@@ -79,7 +78,7 @@ int main() {
 }
 
 void tampilkanMenuPembeli() {
-    system("cls || clear"); // Membersihkan layar
+    system("cls || clear");
     printf("=================================\n");
     printf("       DShoes - Menu Pembeli     \n");
     printf("=================================\n");
@@ -93,17 +92,17 @@ void tampilkanMenuPembeli() {
 void lihatKatalogSepatu() {
     FILE *file = fopen(FILE_SEPATU, "r");
     if (file == NULL) {
-        // Create new file with default products
+    
         file = fopen(FILE_SEPATU, "w");
         
-        // Add default shoes
+
         fprintf(file, "1 Nike_Air_Max Running 1200000 10\n");
         fprintf(file, "2 Adidas_Ultraboost Running 1500000 8\n");
         fprintf(file, "3 Nike_Revolution Casual 800000 15\n");
         fprintf(file, "4 Adidas_Superstar Sneakers 900000 12\n");
         fclose(file);
         
-        // Reopen for reading
+    
         file = fopen(FILE_SEPATU, "r");
         if (file == NULL) {
             printf("Gagal membuka katalog sepatu.\n");
@@ -118,7 +117,7 @@ void lihatKatalogSepatu() {
     Sepatu sepatu;
     while (fscanf(file, "%d %49s %29s %f %d", 
                  &sepatu.id, sepatu.nama, sepatu.kategori, &sepatu.harga, &sepatu.stok) == 5) {
-        // Ganti underscore dengan spasi untuk tampilan
+
         for (char *p = sepatu.nama; *p; p++) if (*p == '_') *p = ' ';
         for (char *p = sepatu.kategori; *p; p++) if (*p == '_') *p = ' ';
         
@@ -130,12 +129,12 @@ void lihatKatalogSepatu() {
 }
 
 void topUpSaldo() {
-    int id_pembeli = 1001; // Asumsi pembeli saat ini
+    int id_pembeli = 1001; 
     float jumlah;
     
     printf("\n=== Top Up Saldo ===\n");
     
-    // Baca saldo saat ini
+    
     FILE *file = fopen(FILE_SALDO, "r");
     SaldoPembeli saldo = {0, 0.0};
     
@@ -158,11 +157,11 @@ void topUpSaldo() {
         return;
     }
     
-    // Update saldo
+    
     saldo.id_pembeli = id_pembeli;
     saldo.saldo += jumlah;
     
-    // Tulis ulang file saldo
+    
     FILE *fileSementara = fopen("saldo_sementara.txt", "w");
     FILE *fileAsli = fopen(FILE_SALDO, "r");
     
@@ -186,7 +185,7 @@ void topUpSaldo() {
     
     fclose(fileSementara);
     
-    // Ganti file lama dengan yang baru
+    
     remove(FILE_SALDO);
     rename("saldo_sementara.txt", FILE_SALDO);
     
@@ -194,7 +193,7 @@ void topUpSaldo() {
 }
 
 void beliSepatu() {
-    int id_pembeli = 1001; // Asumsi pembeli saat ini
+    int id_pembeli = 1001;
     int id_sepatu;
     int jumlah;
     Sepatu sepatu_terpilih = {0};
@@ -202,15 +201,15 @@ void beliSepatu() {
     
     printf("\n=== Pembelian Sepatu ===\n");
     
-    // Tampilkan katalog terlebih dahulu
+    
     lihatKatalogSepatu();
     
-    // Dapatkan ID sepatu yang ingin dibeli
+    
     printf("\nMasukkan ID sepatu yang ingin dibeli: ");
     scanf("%d", &id_sepatu);
     bersihkanBufferInput();
     
-    // Cari sepatu yang dipilih
+    
     FILE *fileSepatu = fopen(FILE_SEPATU, "r");
     if (fileSepatu == NULL) {
         printf("Gagal mengakses katalog sepatu.\n");
@@ -234,13 +233,13 @@ void beliSepatu() {
         return;
     }
     
-    // Ganti underscore dengan spasi untuk tampilan
+    
     for (char *p = sepatu_terpilih.nama; *p; p++) if (*p == '_') *p = ' ';
     for (char *p = sepatu_terpilih.kategori; *p; p++) if (*p == '_') *p = ' ';
     
     printf("Terpilih: %s (%s) - $%.2f\n", sepatu_terpilih.nama, sepatu_terpilih.kategori, sepatu_terpilih.harga);
     
-    // Dapatkan jumlah
+    
     printf("Masukkan jumlah (tersedia: %d): ", sepatu_terpilih.stok);
     scanf("%d", &jumlah);
     bersihkanBufferInput();
@@ -255,7 +254,7 @@ void beliSepatu() {
         return;
     }
     
-    // Cek saldo pembeli
+    
     FILE *fileSaldo = fopen(FILE_SALDO, "r");
     if (fileSaldo == NULL) {
         printf("Gagal mengakses informasi saldo.\n");
@@ -282,7 +281,7 @@ void beliSepatu() {
         return;
     }
     
-    // Konfirmasi pembelian
+    
     printf("\nRingkasan Pembelian:\n");
     printf("Barang: %s (%s)\n", sepatu_terpilih.nama, sepatu_terpilih.kategori);
     printf("Jumlah: %d\n", jumlah);
@@ -301,8 +300,7 @@ void beliSepatu() {
         return;
     }
     
-    // Proses pembelian
-    // 1. Update stok sepatu
+    
     FILE *fileSepatuSementara = fopen("sepatu_sementara.txt", "w");
     fileSepatu = fopen(FILE_SEPATU, "r");
     if (fileSepatu == NULL || fileSepatuSementara == NULL) {
@@ -324,7 +322,7 @@ void beliSepatu() {
     remove(FILE_SEPATU);
     rename("sepatu_sementara.txt", FILE_SEPATU);
     
-    // 2. Update saldo pembeli
+
     saldo.saldo -= total_harga;
     
     FILE *fileSaldoSementara = fopen("saldo_sementara.txt", "w");
@@ -348,7 +346,7 @@ void beliSepatu() {
     remove(FILE_SALDO);
     rename("saldo_sementara.txt", FILE_SALDO);
     
-    // 3. Catat transaksi
+    
     simpanTransaksi(id_pembeli, id_sepatu, sepatu_terpilih.nama, total_harga);
     
     printf("\nPembelian berhasil!\n");
@@ -364,10 +362,10 @@ void simpanTransaksi(int id_pembeli, int id_sepatu, const char* nama_sepatu, flo
     
     int id_transaksi = dapatkanIdTransaksiBerikutnya();
     
-    // Dapatkan tanggal saat ini (sederhana)
-    char tanggal[20] = "2023-11-15"; // Di aplikasi nyata, gunakan tanggal sebenarnya
     
-    // Ganti spasi dengan underscore untuk penyimpanan
+    char tanggal[20] = "2023-11-15"; 
+    
+
     char nama_sepatu_disimpan[50];
     strcpy(nama_sepatu_disimpan, nama_sepatu);
     for (char *p = nama_sepatu_disimpan; *p; p++) {
