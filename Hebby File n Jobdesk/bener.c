@@ -39,7 +39,7 @@ void simpanKeFile() {
 void muatDariFile() {
     FILE *file = fopen("produk.txt", "r");
     if (file == NULL) {
-        return; // file belum ada, tidak apa-apa
+        return; 
     }
 
     while (fscanf(file, "%s %s %s %d %f \"%[^\"]\"\n",
@@ -134,7 +134,7 @@ void tampilkanUlasan() {
 int main() {
     int pilihan;
 
-    muatDariFile(); // muat data saat program mulai
+    muatDariFile();
 
     do {
         printf("\n--- MENU PENJUAL ---\n");
@@ -154,7 +154,7 @@ int main() {
             case 4: beriUlasan(); break;
             case 5: tampilkanUlasan(); break;
             case 0:
-                simpanKeFile(); // simpan data sebelum keluar
+                simpanKeFile();
                 printf("Data disimpan. Terima kasih!\n");
                 break;
             default:
