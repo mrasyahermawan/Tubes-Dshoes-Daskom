@@ -496,7 +496,7 @@ void tambah_ulasan() {
 }
 
 // Fungsi penjual
-// Jobdesk: Hebby (Kelola Produk)
+// Jobdesk: Lia (Tambah Produk)
 // Feature: Manajemen produk lengkap
 void tambah_produk() {
     if (!pengguna_saat_ini || !pengguna_saat_ini->adalah_penjual) {
